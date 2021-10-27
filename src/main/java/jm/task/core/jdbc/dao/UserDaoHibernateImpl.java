@@ -67,14 +67,14 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        List<User> user_list;
+        List<User> userList;
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            user_list = session.createQuery("FROM users").getResultList();
+            userList = session.createQuery("FROM users").getResultList();
             session.getTransaction()
                     .commit();
             session.close();
-            return user_list;
+            return userList;
         }
     }
 
